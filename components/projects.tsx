@@ -11,8 +11,13 @@ export function Projects() {
             className="rounded-lg border border-border bg-surface p-6 sm:p-8"
           >
             <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="font-bold text-2xl text-foreground">
+              <h3 className="flex items-center gap-3 font-bold text-2xl text-foreground">
                 {work.name}
+                {work.status && (
+                  <span className="rounded-full border border-border bg-background px-2.5 py-0.5 font-medium font-mono text-muted text-xs">
+                    {work.status}
+                  </span>
+                )}
               </h3>
               <p className="font-mono text-muted text-xs">{work.role}</p>
             </div>
@@ -39,19 +44,23 @@ export function Projects() {
             </ul>
 
             {work.links.length > 0 && (
-              <div className="mt-6 flex gap-4 font-mono text-sm">
+              <ul className="mt-6 space-y-3 border-border border-t pt-6">
                 {work.links.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-accent underline-offset-4 hover:underline"
-                  >
-                    {link.label} ↗
-                  </a>
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-block rounded border border-border bg-background px-4 py-2 font-mono text-foreground text-sm transition-colors hover:border-muted"
+                    >
+                      {link.label} ↗
+                    </a>
+                    {link.note && (
+                      <p className="mt-2 text-muted text-xs">{link.note}</p>
+                    )}
+                  </li>
                 ))}
-              </div>
+              </ul>
             )}
           </article>
         ))}
