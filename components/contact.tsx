@@ -1,4 +1,5 @@
 import { Section } from "@/components/section";
+import { externalLinkProps } from "@/lib/link";
 import { links } from "@/lib/profile";
 
 export function Contact() {
@@ -12,12 +13,13 @@ export function Contact() {
           <li key={link.href}>
             <a
               href={link.href}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center justify-between rounded-lg border border-border bg-surface px-5 py-4 transition-colors hover:border-muted"
+              {...externalLinkProps(link.href)}
+              className="flex items-center justify-between gap-4 rounded-lg border border-border bg-surface px-5 py-4 transition-colors hover:border-muted"
             >
               <span className="font-mono text-muted text-sm">{link.label}</span>
-              <span className="text-foreground text-sm">{link.handle} ↗</span>
+              <span className="truncate text-foreground text-sm">
+                {link.handle} ↗
+              </span>
             </a>
           </li>
         ))}

@@ -1,3 +1,4 @@
+import { externalLinkProps } from "@/lib/link";
 import { links, profile } from "@/lib/profile";
 
 export function Hero() {
@@ -13,16 +14,12 @@ export function Hero() {
         <p className="mt-2 text-lg text-muted">{profile.nameJa}</p>
       )}
       <p className="mt-6 font-mono text-accent">{profile.role}</p>
-      <p className="mt-4 max-w-2xl text-lg text-muted leading-relaxed">
-        {profile.tagline}
-      </p>
       <ul className="mt-10 flex flex-wrap gap-3 font-mono text-sm">
         {links.map((link) => (
           <li key={link.href}>
             <a
               href={link.href}
-              target="_blank"
-              rel="noreferrer"
+              {...externalLinkProps(link.href)}
               className="inline-block rounded border border-border bg-surface px-4 py-2 text-foreground transition-colors hover:border-muted"
             >
               {link.label} ↗

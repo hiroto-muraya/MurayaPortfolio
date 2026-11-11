@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: `${profile.name} | Portfolio`,
-  description: profile.tagline,
+  description: `${profile.name}（${profile.role}）のポートフォリオ`,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
