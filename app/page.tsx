@@ -1,4 +1,5 @@
 import { Career } from "@/components/career";
+import { Certifications } from "@/components/certifications";
 import { Contact } from "@/components/contact";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
@@ -15,6 +16,7 @@ export default function Home() {
         <Skills />
         <Career />
         <Projects />
+        <Certifications />
         <Contact />
       </main>
       <footer className="border-border border-t py-8 text-center font-mono text-muted text-xs">

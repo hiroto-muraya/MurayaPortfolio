@@ -12,11 +12,14 @@ export type SkillGroup = {
   items: Skill[];
 };
 
+// 検索にヒットさせたくない文字列。scripts/encode-text.mjs で変換した値を入れる
+export type Hidden = { hidden: string };
+export const hidden = (encoded: string): Hidden => ({ hidden: encoded });
+
 export type CareerItem = {
   period: string;
-  title: string;
-  organization: string;
-  description: string;
+  title: string | Hidden;
+  projects?: string[];
 };
 
 export type Project = {
@@ -25,7 +28,15 @@ export type Project = {
   role: string;
   stack: string[];
   highlights: string[];
-  links: { label: string; href: string }[];
+  // 公開状況の案内(例: 正式リリース前であること)
+  status?: string;
+  links: { label: string; href: string; note?: string }[];
+};
+
+export type Certification = {
+  date: string;
+  name: string;
+  issuer: string;
 };
 
 export type Link = {
@@ -59,33 +70,40 @@ export const skillGroups: SkillGroup[] = [
     items: [
       { name: "Linux", icons: ["linux"] },
       { name: "Git / GitLab", icons: ["git", "gitlab"] },
+      { name: "GitHub", icons: ["github"] },
       { name: "Jenkins", icons: ["jenkins"] },
       { name: "JP1", icons: ["jp1"] },
       { name: "PostgreSQL", icons: ["postgresql"] },
+      { name: "Netlify", icons: ["netlify"] },
+      { name: "Claude Code", icons: ["claudecode"] },
     ],
   },
 ];
 
-// 新しいものを上に書く
+// 新しいものを上に書く。社名は hidden() で指定(検索エンジンに拾わせないため)
 export const career: CareerItem[] = [
   {
-    period: "2025 – 現在", // TODO
-    title: "個人開発：MauFin",
-    organization: "2人チーム",
-    description:
-      "登山計画・記録Webアプリを共同開発。バックエンドAPIの設計・実装、DB設計、計画書のPDF出力を担当。",
+    period: "2023年11月 – 現在",
+    title: hidden("KT8zPTU2NTQyOT8OejY/KTQb5P69wOa+1ea/8Pq8"),
+    projects: [
+      "PC・スマートフォン・タブレットのキッティング",
+      "某メーカー系IT企業の新入社員教育（サブ講師）",
+      "航空関連システムの開発・改修・テスト",
+      "大手金融業向けバッチシステム開発",
+    ],
   },
   {
-    period: "20XX – 現在", // TODO
-    title: "システムエンジニア",
-    organization: "株式会社〇〇", // TODO: 社名を出さない場合は「SIer」などに
-    description: "Java・C#を用いた業務システムの開発・保守に従事。", // TODO
+    period: "2023年4月 – 2023年9月",
+    title: hidden("aPrZufLYufnYudzZueT+vcDmvtXmv/D6vA=="),
+    projects: ["基地局管理システムの運用保守"],
   },
   {
-    period: "20XX", // TODO
-    title: "〇〇大学 〇〇学部 卒業", // TODO
-    organization: "",
-    description: "",
+    period: "2023年3月",
+    title: "青森大学 ソフトウェア情報学部 卒業",
+  },
+  {
+    period: "2019年3月",
+    title: "青森山田高等学校 情報処理科 卒業",
   },
 ];
 
@@ -93,15 +111,40 @@ export const projects: Project[] = [
   {
     name: "MauFin",
     summary:
-      "山の検索から、登山候補の登録、登山計画の作成、計画書のPDF出力、写真付きの登山記録まで行える登山計画・記録Webアプリ。",
+      "山の検索から、登山候補の登録、登山計画の作成、計画書のPDF出力、写真付きの登山記録まで行える登山計画・記録Webアプリケーション。",
     role: "バックエンド担当（2人チーム）",
     stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"],
     highlights: [
       "7テーブル構成のDB設計と、全テーブルへのRLS適用",
       "マイページ・山検索・登山計画などのAPI実装",
-      "登山計画書のPDF生成機能",
     ],
-    links: [], // TODO: 公開リポジトリやデモURLがあれば { label: "GitHub", href: "..." } を追加
+    status: "Coming Soon",
+    links: [
+      {
+        label: "開発環境を見る",
+        href: "https://roaring-queijadas-0d0d68.netlify.app/",
+        note: "現在は開発中の環境です。正式リリースは Coming Soon。",
+      },
+    ],
+  },
+];
+
+// 新しいものを上に書く
+export const certifications: Certification[] = [
+  {
+    date: "2026年9月",
+    name: "AWS Certified Cloud Practitioner",
+    issuer: "Amazon Web Services",
+  },
+  {
+    date: "2026年9月",
+    name: "JP1認定エンジニア",
+    issuer: "日立製作所",
+  },
+  {
+    date: "2025年4月",
+    name: "Oracle Certified Java Programmer, Silver SE 11",
+    issuer: "Oracle",
   },
 ];
 
