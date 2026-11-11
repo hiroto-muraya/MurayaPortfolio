@@ -1,11 +1,11 @@
 import { Section } from "@/components/section";
-import { works } from "@/lib/profile";
+import { projects } from "@/lib/profile";
 
-export function Works() {
+export function Projects() {
   return (
-    <Section id="works" index="03" title="Works">
+    <Section id="projects" index="03" title="Personal Projects">
       <div className="grid gap-6">
-        {works.map((work) => (
+        {projects.map((work) => (
           <article
             key={work.name}
             className="rounded-lg border border-border bg-surface p-6 sm:p-8"
