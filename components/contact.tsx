@@ -4,7 +4,7 @@ import { links } from "@/lib/profile";
 
 export function Contact() {
   return (
-    <Section id="contact" index="04" title="Contact">
+    <Section id="contact" index="05" title="Contact">
       <p className="mb-8 max-w-2xl text-muted leading-relaxed">
         お仕事のご相談や、制作物へのご感想などはこちらからどうぞ。
       </p>
