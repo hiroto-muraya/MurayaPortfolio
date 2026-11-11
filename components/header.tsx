@@ -3,7 +3,6 @@ const navItems = [
   { href: "#career", label: "career" },
   { href: "#projects", label: "projects" },
   { href: "#certifications", label: "certs" },
-  { href: "#contact", label: "contact" },
 ];
 
 export function Header() {
