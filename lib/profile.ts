@@ -1,11 +1,10 @@
 // サイトに表示する内容はすべてこのファイルに集約している。
 // 「TODO」と書かれた箇所は仮の内容なので、本人の情報に差し替えること。
 
-export type SkillLevel = "実務" | "個人開発" | "学習中";
-
 export type Skill = {
   name: string;
-  level: SkillLevel;
+  // public/icons/<名前>.svg のファイル名(拡張子なし)。複数指定で並べて表示
+  icons: string[];
 };
 
 export type SkillGroup = {
@@ -20,7 +19,7 @@ export type CareerItem = {
   description: string;
 };
 
-export type Work = {
+export type Project = {
   name: string;
   summary: string;
   role: string;
@@ -38,41 +37,31 @@ export type Link = {
 export const profile = {
   name: "Hiroto Muraya",
   nameJa: "", // TODO: 漢字表記を載せる場合は入力（空なら非表示）
-  role: "Software Engineer",
-  tagline: "業務システムの開発をしながら、個人開発でWebアプリを作っています。", // TODO
-  about: [
-    "現場ではJava・C#を使った業務システムの開発に携わっています。", // TODO
-    "個人開発では、登山の計画と記録を管理するWebアプリ「MauFin」を2人で開発し、バックエンドAPIを担当しました。",
-    "仕様とデータ設計を大事にしながら、使う人にとって分かりやすいものを作ることを心がけています。", // TODO
-  ],
+  role: "Backend Engineer",
 };
 
 export const skillGroups: SkillGroup[] = [
   {
     category: "Languages",
     items: [
-      { name: "Java", level: "実務" },
-      { name: "C#", level: "実務" },
-      { name: "TypeScript", level: "個人開発" },
-      { name: "SQL", level: "実務" }, // TODO
+      { name: "Java", icons: ["java"] },
+      { name: "C#", icons: ["csharp"] },
+      { name: "SQL", icons: ["sql"] },
+      { name: "Bash", icons: ["bash"] },
     ],
   },
   {
     category: "Frameworks",
-    items: [
-      { name: "Next.js (App Router)", level: "個人開発" },
-      { name: "React", level: "個人開発" },
-      { name: "Spring Boot", level: "個人開発" },
-      { name: "Tailwind CSS", level: "個人開発" },
-    ],
+    items: [{ name: "Spring Boot", icons: ["spring"] }],
   },
   {
     category: "Infra / Tools",
     items: [
-      { name: "Supabase (PostgreSQL / Auth / RLS)", level: "個人開発" },
-      { name: "Git / GitHub", level: "実務" },
-      { name: "Biome", level: "個人開発" },
-      { name: "pnpm", level: "個人開発" },
+      { name: "Linux", icons: ["linux"] },
+      { name: "Git / GitLab", icons: ["git", "gitlab"] },
+      { name: "Jenkins", icons: ["jenkins"] },
+      { name: "JP1", icons: ["jp1"] },
+      { name: "PostgreSQL", icons: ["postgresql"] },
     ],
   },
 ];
@@ -100,7 +89,7 @@ export const career: CareerItem[] = [
   },
 ];
 
-export const works: Work[] = [
+export const projects: Project[] = [
   {
     name: "MauFin",
     summary:
@@ -122,7 +111,9 @@ export const links: Link[] = [
     href: "https://github.com/hiroto-muraya",
     handle: "@hiroto-muraya",
   },
-  // TODO: X / Zenn / Qiita / メールなど
-  // { label: "X", href: "https://x.com/xxxx", handle: "@xxxx" },
-  // { label: "Mail", href: "mailto:xxxx@example.com", handle: "xxxx@example.com" },
+  {
+    label: "Mail",
+    href: "mailto:muraya.hiroto619@gmail.com",
+    handle: "muraya.hiroto619@gmail.com",
+  },
 ];
