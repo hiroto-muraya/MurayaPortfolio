@@ -2,7 +2,7 @@
 
 # MurayaPortfolio
 
-Murayaの個人サイト(ポートフォリオ)。スキル、経歴、個人開発、資格、連絡先の1ページ構成。
+Murayaの個人サイト(ポートフォリオ)。スキル、経歴、個人開発、資格の1ページ構成(連絡先はページ上部のボタン)。
 
 ## 技術スタック
 
@@ -16,7 +16,7 @@ Murayaの個人サイト(ポートフォリオ)。スキル、経歴、個人開
 
 - `lib/profile.ts` — サイトに表示する内容はすべてここ。文章や経歴の変更はこのファイルだけで済むようにする
   - `// TODO` が付いている箇所は仮の内容。本人に確認してから差し替える
-- `components/` — セクションごとのコンポーネント(header, hero, skills, career, projects, certifications, contact, section)
+- `components/` — セクションごとのコンポーネント(header, hero, skills, career, projects, certifications, section)
 - `public/icons/` — スキル欄のアイコン(SVG)。言語・ツールは devicon(MIT)から取得、SQL・JP1 は汎用アイコンを自作
 - `app/page.tsx` — セクションを並べるだけ
 

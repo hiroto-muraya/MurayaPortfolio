@@ -69,13 +69,12 @@ export const skillGroups: SkillGroup[] = [
     category: "Infra / Tools",
     items: [
       { name: "Linux", icons: ["linux"] },
-      { name: "Git / GitLab", icons: ["git", "gitlab"] },
+      { name: "Git", icons: ["git"] },
       { name: "GitHub", icons: ["github"] },
+      { name: "GitLab", icons: ["gitlab"] },
       { name: "Jenkins", icons: ["jenkins"] },
-      { name: "JP1", icons: ["jp1"] },
+      { name: "JP1/AJS3", icons: ["jp1"] },
       { name: "PostgreSQL", icons: ["postgresql"] },
-      { name: "Netlify", icons: ["netlify"] },
-      { name: "Claude Code", icons: ["claudecode"] },
     ],
   },
 ];
@@ -113,7 +112,16 @@ export const projects: Project[] = [
     summary:
       "山の検索から、登山候補の登録、登山計画の作成、計画書のPDF出力、写真付きの登山記録まで行える登山計画・記録Webアプリケーション。",
     role: "バックエンド担当（2人チーム）",
-    stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"],
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Netlify",
+      "GitHub",
+      "Claude Code",
+    ],
     highlights: [
       "7テーブル構成のDB設計と、全テーブルへのRLS適用",
       "マイページ・山検索・登山計画などのAPI実装",
@@ -133,13 +141,13 @@ export const projects: Project[] = [
 export const certifications: Certification[] = [
   {
     date: "2026年9月",
-    name: "AWS Certified Cloud Practitioner",
-    issuer: "Amazon Web Services",
+    name: "JP1認定エンジニア",
+    issuer: "日立製作所",
   },
   {
     date: "2026年9月",
-    name: "JP1認定エンジニア",
-    issuer: "日立製作所",
+    name: "AWS Certified Cloud Practitioner",
+    issuer: "Amazon Web Services",
   },
   {
     date: "2025年4月",

@@ -1,6 +1,5 @@
 import { Career } from "@/components/career";
 import { Certifications } from "@/components/certifications";
-import { Contact } from "@/components/contact";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Projects } from "@/components/projects";
@@ -17,7 +16,6 @@ export default function Home() {
         <Career />
         <Projects />
         <Certifications />
-        <Contact />
       </main>
       <footer className="border-border border-t py-8 text-center font-mono text-muted text-xs">
         © {profile.name}
